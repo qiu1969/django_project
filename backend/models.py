@@ -6,8 +6,14 @@ class User(models.Model):
     # 用户的数据实体
     username = models.CharField(max_length=20,null=False,unique=True)
     password = models.CharField(max_length=20)
-    email = models.EmailField(null=True,unique=True,blank=True)
-    phone = models.CharField(max_length=15,null=True,unique=True,blank=True)
+    email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=15,unique=True)
+
+    avator = models.CharField(max_length=15,default='2default.jpg')
+    residence = models.CharField(max_length=50,null=True,blank=True)
+    profession = models.CharField(max_length=50,null=True,blank=True)
+    career_experience = models.CharField(max_length=50,null=True,blank=True)
+    education_experience = models.CharField(max_length=50,null=True,blank=True)
     introduction = models.CharField(max_length=500,default='这个人很懒，什么都没有留下')
     signature = models.CharField(max_length=200,default='这个人很懒，什么都没有留下')
     create_time = models.DateTimeField(auto_now_add=True)
