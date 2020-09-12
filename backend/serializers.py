@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.models import User,Question,Answer,Comment,Tag,Dialogue,Message
+from backend.models import User,Question,Answer,Comment,Tag,Dialogue,Message,Avator
 
 
 '''
@@ -174,3 +174,8 @@ class CommentUnserializer(serializers.ModelSerializer):
         model = Comment
         fields = '__all__'
 
+
+class AvatorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Avator
+        fields = '__all__'

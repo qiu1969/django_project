@@ -102,3 +102,9 @@ class Message(models.Model):
     
     class Meta:
         db_table = 'Message'
+
+
+class Avator(models.Model):
+    # 保存头像路径的实体
+    user = models.ForeignKey(to='User',on_delete=models.CASCADE,related_name='avator_set')
+    path = models.CharField(max_length=30)

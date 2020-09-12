@@ -57,7 +57,7 @@ class UserView(APIView):
         login_id = request.user['user_id']
         if not user_id:
             return Response('缺少用户id',status=status.HTTP_200_OK)
-        print(type(user_id))
+        # print(type(user_id))
         user_id = int(user_id)
         try:
             user = User.objects.get(id=user_id)
@@ -218,3 +218,23 @@ class FollowView(APIView):
         followee = serializer.save()
         serializer = UserSerializer(instance=followee,context={'login_id':follower_id})
         return Response(serializer.data,status=status.HTTP_204_NO_CONTENT)
+
+
+class ChangeAvatorView(APIView):
+    # 更换头像
+    authentication_classes = [LoginAuthentication]
+    def put(self,request,*args,**kwargs):
+        avator = request.data.get('avator')
+        login_id = request.user['user_id']
+        if not avator:
+            return Response('缺少头像路径',status=status.HTTP_400_BAD_REQUEST)
+        try:
+            user = User.objects.get(id=login_id)
+        except User.DoesNotExist:
+            return Response('您所访问的用户不存在',status=status.HTTP_404_NOT_FOUND)
+        user.avator = avator
+        user.save()
+        return Response(status=status.HTTP_201_CREATED)
+
+        
+        

@@ -7,7 +7,7 @@ from backend.questionviews import QuestionView,FollowQuestionView,SearchQuestion
 from backend.questionviews import QuestionsByFollowerView
 from backend.answerviews import AnswerView,CollectView,LikeAnswerView,CollectionsView,AnswersByAuthorView
 from backend.answerviews import SearchAnswersView,AnswerByQuestionView
-from backend.avatorviews import UploadImage
+from backend.avatorviews import AvatorView
 
 
 urlpatterns = [
@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^likecomment$',LikeCommentView.as_view()),
     url(r'^comment$',CommentView.as_view()),
     
-    url(r'^upload$',UploadImage.as_view())
+    url(r'^upload$',AvatorView.as_view())
     
     
 ]
