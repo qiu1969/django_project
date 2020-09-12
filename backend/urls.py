@@ -2,7 +2,7 @@ from django.conf.urls import url
 from backend.commentviews import LikeCommentView
 from backend.commentviews import CommentView
 from backend.userviews import UserView,SearchUsersView,LoginView,RegisterView,FolloweesView,FollowersView
-from backend.userviews import ChangePassword,FollowView
+from backend.userviews import ChangePassword,FollowView,ChangeAvatorView
 from backend.questionviews import QuestionView,FollowQuestionView,SearchQuestionView,QuestionsByAskerView
 from backend.questionviews import QuestionsByFollowerView
 from backend.answerviews import AnswerView,CollectView,LikeAnswerView,CollectionsView,AnswersByAuthorView
@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^searchusers$',SearchUsersView.as_view()),
     url(r'^changepassword$',ChangePassword.as_view()),
     url(r'^follow$',FollowView.as_view()),
+    url(r'^changeavator$',ChangeAvatorView.as_view()),
 
     url(r'^question$',QuestionView.as_view()),
     url(r'^followquestion$',FollowQuestionView.as_view()),
