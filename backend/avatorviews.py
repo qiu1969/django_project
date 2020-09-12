@@ -21,4 +21,4 @@ class UploadImage(APIView):
             for content in file.chunks():
                 f.write(content)
 
-        return Response(save_path,status=status.HTTP_201_CREATED)
+        return Response((str(login_id)+file.name),status=status.HTTP_201_CREATED)
