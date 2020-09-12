@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^likecomment$',LikeCommentView.as_view()),
     url(r'^comment$',CommentView.as_view()),
     
-    url(r'^upload$',AvatorView.as_view())
+    url(r'^avator$',AvatorView.as_view())
     
     
 ]

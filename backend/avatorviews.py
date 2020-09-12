@@ -16,11 +16,6 @@ class AvatorView(APIView):
         login_id = request.user['user_id']
         save_path = str(BASE_DIR) + '/avators/' +str(login_id) + file.name
 
-        # 创建文件
-        with open(save_path,'wb') as f:
-            for content in file.chunks():
-                f.write(content)
-        
         avator = {
             'user':login_id,
             'path':str(login_id)+file.name
@@ -30,7 +25,10 @@ class AvatorView(APIView):
             serializer.is_valid(raise_exception=True)
         except ValidationError as exception:
             return Response(str(exception),status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-        # Avator.objects.create(**avator)
+        # 创建文件
+        with open(save_path,'wb') as f:
+            for content in file.chunks():
+                f.write(content)
         avator = serializer.save()
         serializer = AvatorSerializer(instance=avator)
         return Response(serializer.data,status=status.HTTP_201_CREATED)

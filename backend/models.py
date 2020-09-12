@@ -107,4 +107,4 @@ class Message(models.Model):
 class Avator(models.Model):
     # 保存头像路径的实体
     user = models.ForeignKey(to='User',on_delete=models.CASCADE,related_name='avator_set')
-    path = models.CharField(max_length=30)
+    path = models.CharField(max_length=30,unique=True)
