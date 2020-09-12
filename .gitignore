@@ -1,0 +1,6 @@
+/.vscode/
+/ll_env/
+/db.sqlite3
+/Vue_django/__pycache__/
+/backend/__pycache__/
+/backend/migrations/
