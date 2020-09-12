@@ -12,8 +12,7 @@ class UploadImage(APIView):
     def post(self,request,*args,**kwargs):
         file = request.FILES.get('file')
         login_id = request.user['user_id']
-        # BASE_DIR = 'C:/Users/56838/Documents/Vue/quasar/app/public/avators/'
-        save_path = str(BASE_DIR) + '\\avators\\' +str(login_id) + file.name
+        save_path = str(BASE_DIR) + '/avators/' +str(login_id) + file.name
 
         print(save_path)
 
