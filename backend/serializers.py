@@ -14,7 +14,7 @@ class UserSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=20)
     email = serializers.EmailField(max_length=254)
     phone = serializers.CharField(max_length=15)
-    avator = serializers.CharField(max_length=15, required=False)
+    avator = serializers.CharField(max_length=40, required=False)
     residence = serializers.CharField(allow_blank=True, allow_null=True, max_length=50, required=False)
     profession = serializers.CharField(allow_blank=True, allow_null=True, max_length=50, required=False)
     career_experience = serializers.CharField(allow_blank=True, allow_null=True, max_length=50, required=False)

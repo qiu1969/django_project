@@ -9,7 +9,7 @@ class User(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=15,unique=True)
 
-    avator = models.CharField(max_length=15,default='2default.jpg')
+    avator = models.CharField(max_length=40,default='2default.jpg')
     residence = models.CharField(max_length=50,null=True,blank=True)
     profession = models.CharField(max_length=50,null=True,blank=True)
     career_experience = models.CharField(max_length=50,null=True,blank=True)
