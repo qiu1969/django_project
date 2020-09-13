@@ -123,7 +123,7 @@ class CollectView(APIView):
             return Response(str(exception),status=status.HTTP_422_UNPROCESSABLE_ENTITY)
         answer = serializer.save()
         serializer = AnswerSerializer(instance=answer,context={'login_id':login_id})
-        return Response(serializer.data,status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
 
 class LikeAnswerView(APIView):
@@ -174,7 +174,7 @@ class LikeAnswerView(APIView):
             return Response(str(exception),status=status.HTTP_422_UNPROCESSABLE_ENTITY)
         answer = serializer.save()
         serializer = AnswerSerializer(instance=answer,context={'login_id':login_id})
-        return Response(serializer.data,status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
 
 class CollectionsView(APIView):
