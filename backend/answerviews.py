@@ -122,8 +122,8 @@ class CollectView(APIView):
         except ValidationError as exception:
             return Response(str(exception),status=status.HTTP_422_UNPROCESSABLE_ENTITY)
         answer = serializer.save()
-        serializer = AnswerSerializer(instance=answer,context={'login_id':login_id})
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        # serializer = AnswerSerializer(instance=answer,context={'login_id':login_id})
+        return Response(serializer.data,status=status.HTTP_204_NO_CONTENT)
 
 
 class LikeAnswerView(APIView):
@@ -173,8 +173,8 @@ class LikeAnswerView(APIView):
         except ValidationError as exception:
             return Response(str(exception),status=status.HTTP_422_UNPROCESSABLE_ENTITY)
         answer = serializer.save()
-        serializer = AnswerSerializer(instance=answer,context={'login_id':login_id})
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        # serializer = AnswerSerializer(instance=answer,context={'login_id':login_id})
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class CollectionsView(APIView):
